@@ -40,6 +40,13 @@ Product.init(
       allowNull: false,
       primaryKey: true,
     },
+    // product_tag: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'product_tag',
+    //     key: 'tag_id',
+    //   },
+    // },
   },
   {
     sequelize,
