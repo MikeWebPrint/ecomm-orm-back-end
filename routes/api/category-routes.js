@@ -59,7 +59,7 @@ router.put('/:id', (req, res) => {
     {
       // Gets a book based on the book_id given in the request parameters
       where: {
-        category_id: req.params.id,
+        id: req.params.id,
       },
     }
   )
@@ -79,7 +79,7 @@ router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
-      category_id: req.params.id,
+      id: req.params.id,
     },
   })
     .then((deletedCategory) => {

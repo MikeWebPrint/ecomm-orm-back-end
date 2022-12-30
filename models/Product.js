@@ -14,6 +14,13 @@ Product.init(
     // price: 22.99,
     // stock: 12,
     // category_id: 4,
+
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true,
+    },
     product_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -32,18 +39,12 @@ Product.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'category',
-        key: 'category_id',
+        key: 'id',
       },
       onDelete: 'SET NULL',
       onUpdate: 'CASCADE',
       allowNull: true,
-    },
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      allowNull: false,
-      primaryKey: true,
-    },
+    }
 
   },
   {

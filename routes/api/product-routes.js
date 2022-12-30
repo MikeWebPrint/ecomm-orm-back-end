@@ -37,13 +37,14 @@ router.get('/:id', async (req, res) => {
 
 // create new product
 router.post('/', (req, res) => {
-      const product =  Product.create({
-        product_name: req.body.product_name,
-        price: req.body.price,
-        stock: req.body.stock,
-        tagIds: req.body.tagIds,
-        category_id: req.body.category_id,
-      })
+      // const product =  Product.create({
+      //   product_name: req.body.product_name,
+      //   price: req.body.price,
+      //   stock: req.body.stock,
+      //   tagIds: req.body.tagIds,
+      //   //category_id: req.body.category_id,
+      // })
+            const product =  Product.create(req.body)
       .then((productData) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
@@ -79,6 +80,7 @@ router.put('/:id', (req, res) => {
           where: { product_id: req.params.id },
         });
         const productTagIds = productTags.map(({ tag_id }) => tag_id);
+        console.log(productTags)
         // create filtered list of new tag_ids
         const newProductTags = req.body.tagIds
           .filter((tag_id) => !productTagIds.includes(tag_id))
