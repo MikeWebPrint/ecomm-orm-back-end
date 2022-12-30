@@ -34,6 +34,9 @@ Product.init(
         model: 'category',
         key: 'category_id',
       },
+      onDelete: 'SET NULL',
+      onUpdate: 'CASCADE',
+      allowNull: true,
     },
     id: {
       type: DataTypes.INTEGER,
@@ -41,13 +44,7 @@ Product.init(
       allowNull: false,
       primaryKey: true,
     },
-    // product_tag: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'product_tag',
-    //     key: 'tag_id',
-    //   },
-    // },
+
   },
   {
     sequelize,
